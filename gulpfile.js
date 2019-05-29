@@ -27,9 +27,6 @@ function buildCss() {
         .pipe(gulp.dest('css/'))
 }
 
-function watcher() {
-    gulp.watch(['scss/*.scss'], gulp.series(buildCss));
-}
-
-exports.watch = gulp.series(buildCss, watcher);
-exports.default = gulp.series(buildCss);
+gulp.task('watch', () => {
+	gulp.watch(['scss/*.scss'], gulp.series(buildCss));
+});
